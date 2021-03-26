@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "npm run cypress:open",
-    "cypress:open": "cypress open"
+    "cypress:open": "concurrently --kill-others-on-fail \"npm run start\" \"node_modules/.bin/cypress open\" ",
+    "cypress": "concurrently --kill-others-on-fail \"npm run start\" \"node_modules/.bin/cypress run\" "
   },
   "private": true,
   "dependencies": {
@@ -40,6 +41,7 @@
     "@types/node": "^12.11.1",
     "@types/testing-library__jasmine-dom": "^1.0.3",
     "codelyzer": "^6.0.0",
+    "concurrently": "^6.0.0",
     "cypress": "^6.8.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
