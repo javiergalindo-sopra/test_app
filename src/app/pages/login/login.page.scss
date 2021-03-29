@@ -1,10 +1,13 @@
 @import 'src/theme/partials/mixins';
+@import 'src/theme/partials/variables';
 
 .login-page {
   --background: url('../../../assets/background.jpg') no-repeat left/cover;
 
   &__content {
-    height: 100vh;
     @include aligns(center, center);
+    @media screen and (min-width: map-get($ion-grid-breakpoints, sm)) {
+      height: 100vh;
+    }
   }
 }
