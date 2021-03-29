@@ -8,40 +8,68 @@
   </ion-row>
   <ion-row class="login-form">
     <ion-col>
-      <form>
+      <form [formGroup]="formGroup">
         <ion-item-group class="login-form__form">
           <ion-item class="login-form__field">
             <ion-label class="login-form__field-label"
-              ><ion-icon name="mail-outline"></ion-icon
+              ><ion-icon name="mail-outline" aria-hidden="true"></ion-icon
             ></ion-label>
             <ion-input
               type="email"
               placeholder="Email"
               [name]="'email'"
+              formControlName="email"
               class="login-form__input"
+              aria-label="Email"
             ></ion-input>
           </ion-item>
+          <div
+            *ngIf="
+              formGroup.controls.email.invalid &&
+              formGroup.controls.email.touched
+            "
+          >
+            El email introducido es inválido
+          </div>
           <ion-item class="login-form__field">
             <ion-label class="login-form__field-label"
-              ><ion-icon name="lock-closed-outline"></ion-icon
+              ><ion-icon
+                name="lock-closed-outline"
+                aria-hidden="true"
+              ></ion-icon
             ></ion-label>
             <ion-input
               type="password"
               placeholder="Contraseña"
               [name]="'password'"
               class="login-form__input"
+              formControlName="pass"
+              aria-label="Contraseña"
             ></ion-input>
           </ion-item>
+          <div
+            *ngIf="
+              formGroup.controls.pass.invalid && formGroup.controls.pass.touched
+            "
+          >
+            La contraseña debe contener almenos 5 caracteres
+          </div>
           <ion-item lines="none" class="login-form__field">
             <ion-label>Recordar</ion-label>
             <ion-toggle
               class="login-form__toggle-button"
               name="remind-pass"
               mode="md"
+              formControlName="remind"
             ></ion-toggle>
           </ion-item>
         </ion-item-group>
-        <ion-button class="login-form__submit-button" expand="full"
+        <ion-button
+          class="login-form__submit-button"
+          expand="full"
+          type="submit"
+          (click)="submitForm()"
+          name="login"
           >Acceder</ion-button
         >
       </form>
