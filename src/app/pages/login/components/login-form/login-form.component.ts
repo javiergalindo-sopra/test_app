@@ -8,18 +8,18 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { PlatformService } from '../../../../services/platform.service';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-  public remindPassword = false;
-
   public formGroup: FormGroup;
   private readonly ngUnsubscribe = new Subject<void>();
 
-  constructor() {}
+  constructor(public platform: PlatformService) {}
 
   ngOnInit() {
     this.setupFormControl();

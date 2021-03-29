@@ -1,8 +1,9 @@
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, Platform } from '@ionic/angular';
 import { fireEvent, render, screen } from '@testing-library/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginFormComponent } from './login-form.component';
+import { PlatformService } from '../../../../services/platform.service';
 
 describe('LoginFormComponent', () => {
   it('should create the login form component', async () => {
@@ -86,5 +87,43 @@ describe('LoginFormComponent', () => {
         'La contraseña debe contener almenos 5 caracteres'
       )
     ).toBeInTheDocument();
+  });
+
+  it('should render the app title when is viewing in desktop', async () => {
+    await render(LoginFormComponent, {
+      componentProviders: [
+        {
+          provide: PlatformService,
+          useValue: {
+            isDesktop: () => true,
+            isMobile: () => false,
+          },
+        },
+      ],
+      providers: [Platform],
+      imports: [IonicModule, ReactiveFormsModule],
+      detectChanges: true,
+    });
+
+    expect(screen.queryByText('Prueba técnica')).toBeInTheDocument();
+  });
+
+  it('should not render the app title when device is mobile', async () => {
+    await render(LoginFormComponent, {
+      componentProviders: [
+        {
+          provide: PlatformService,
+          useValue: {
+            isDesktop: () => false,
+            isMobile: () => true,
+          },
+        },
+      ],
+      providers: [Platform],
+      imports: [IonicModule, ReactiveFormsModule],
+      detectChanges: true,
+    });
+
+    expect(screen.queryByText('Prueba técnica')).toBeNull();
   });
 });

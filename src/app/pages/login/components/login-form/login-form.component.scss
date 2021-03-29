@@ -8,7 +8,9 @@
 
   &__app-logo {
     @include aligns(center, center);
-    margin: 2rem auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    flex-direction: column;
   }
 
   &__thumbnail {
