@@ -24,14 +24,15 @@
               aria-label="Email"
             ></ion-input>
           </ion-item>
-          <div
+          <span
             *ngIf="
               formGroup.controls.email.invalid &&
               formGroup.controls.email.touched
             "
+            class="login-form__error-message"
           >
             El email introducido es inválido
-          </div>
+          </span>
           <ion-item class="login-form__field">
             <ion-label class="login-form__field-label"
               ><ion-icon
@@ -48,13 +49,14 @@
               aria-label="Contraseña"
             ></ion-input>
           </ion-item>
-          <div
+          <span
             *ngIf="
               formGroup.controls.pass.invalid && formGroup.controls.pass.touched
             "
+            class="login-form__error-message"
           >
             La contraseña debe contener almenos 5 caracteres
-          </div>
+          </span>
           <ion-item lines="none" class="login-form__field">
             <ion-label>Recordar</ion-label>
             <ion-toggle
@@ -71,8 +73,22 @@
           type="submit"
           (click)="submitForm()"
           name="login"
+          *ngIf="platform.isMobile()"
           >Acceder</ion-button
         >
+        <ion-row *ngIf="platform.isDesktop()" class="ion-text-center">
+          <ion-col>
+            <ion-button
+              class="login-form__submit-button"
+              type="submit"
+              (click)="submitForm()"
+              name="login"
+              fill="clear"
+              shape="round"
+              >Acceder</ion-button
+            >
+          </ion-col>
+        </ion-row>
       </form>
     </ion-col>
   </ion-row>

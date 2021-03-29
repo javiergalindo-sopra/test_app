@@ -78,7 +78,11 @@
   /* Brand colors */
   --sanitas-primary: #0279c8;
   --sanitas-lighter-primary: #549ed0;
-  --sanitas-lightgrey: #939393;
+  --sanitas-lightgrey-800: #939393;
+  --sanitas-lightgrey-300: #d8d8d8;
+  --sanitas-white: #ffffff;
+  --sanitas-black: #000000;
+  --sanitas-error: #a9311c;
 }
 
 @media (prefers-color-scheme: dark) {
