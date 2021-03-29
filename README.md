@@ -10,7 +10,7 @@ Esta aplicación está hecha con Angular 11 e Ionic 5. Dispone de un formateador
 
 Cada uno de los componentes dispone de una suite de test desarrollados con el framework de testing Angular Testing Library (https://testing-library.com/docs/angular-testing-library/intro). Este framework nos proporciona una manera de probar los componentes sin entrar en el detalle de la implementación, de manera que interactuamos con los componentes tal y como lo haría el usuario.
 
-Para desarrollar los test e2e he optado por utilizar Cypress. Este nos provee de herramientas para hacer los test e2e de manera muy intuitiva y de manera muy sencilla.
+Para desarrollar los test e2e he optado por utilizar Cypress. Este nos provee de herramientas para hacer los test e2e de manera muy intuitiva y sencilla.
 
 ## Instrucciones
 
