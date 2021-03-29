@@ -9,8 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "npm run cypress:open",
-    "cypress:open": "concurrently --kill-others-on-fail \"npm run start\" \"node_modules/.bin/cypress open\" ",
+    "e2e": "concurrently --kill-others-on-fail \"npm run start\" \"npm run cypress:open\"",
+    "cypress:open": "node_modules/.bin/cypress open",
     "cypress": "concurrently --kill-others-on-fail \"npm run start\" \"node_modules/.bin/cypress run\" "
   },
   "private": true,
