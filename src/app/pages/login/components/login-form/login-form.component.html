@@ -1,16 +1,33 @@
-<ion-grid class="login-form" data-testid="login-form">
-  <form>
-    <ion-item>
-      <ion-label><ion-icon name="mail-outline"></ion-icon></ion-label>
-      <ion-input type="text" placeholder="Email" [name]="'email'"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label><ion-icon name="lock-closed-outline"></ion-icon></ion-label>
-      <ion-input
-        type="text"
-        placeholder="Contraseña"
-        [name]="'password'"
-      ></ion-input>
-    </ion-item>
-  </form>
+<ion-grid>
+  <ion-row class="welcome-logo">
+    <ion-col class="welcome-logo__app-logo">
+      <ion-thumbnail class="welcome-logo__thumbnail">
+        <img class="welcome-logo__logo-img" />
+      </ion-thumbnail>
+    </ion-col>
+  </ion-row>
+  <ion-row class="login-form">
+    <ion-col>
+      <form>
+        <ion-item>
+          <ion-label><ion-icon name="mail-outline"></ion-icon></ion-label>
+          <ion-input
+            type="text"
+            placeholder="Email"
+            [name]="'email'"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label
+            ><ion-icon name="lock-closed-outline"></ion-icon
+          ></ion-label>
+          <ion-input
+            type="text"
+            placeholder="Contraseña"
+            [name]="'password'"
+          ></ion-input>
+        </ion-item>
+      </form>
+    </ion-col>
+  </ion-row>
 </ion-grid>

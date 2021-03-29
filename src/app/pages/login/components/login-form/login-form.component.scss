@@ -1,3 +1,16 @@
-.login-form {
-  background-color: white;
+@import 'src/theme/partials/mixins';
+
+.welcome-logo {
+  &__app-logo {
+    @include aligns(center, center);
+    margin-bottom: 2rem;
+  }
+
+  &__thumbnail {
+    --size: 7rem;
+  }
+
+  &__logo-img {
+    background: url('../../../../../assets/logo.jpg') no-repeat left/cover;
+  }
 }
