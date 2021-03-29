@@ -1,3 +1,10 @@
+@import 'src/theme/partials/mixins';
+
 .login-page {
   --background: url('../../../assets/background.jpg') no-repeat left/cover;
+
+  &__content {
+    height: 100vh;
+    @include aligns(center, center);
+  }
 }

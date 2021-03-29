@@ -1,6 +1,7 @@
 import { ComponentFixture } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { render } from '@testing-library/angular';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 import { LoginPage } from './login.page';
 
@@ -11,6 +12,7 @@ describe('LoginPage', () => {
   beforeEach(async () => {
     const renderTools = await render(LoginPage, {
       imports: [IonicModule.forRoot()],
+      declarations: [LoginFormComponent],
       detectChanges: true,
     });
 

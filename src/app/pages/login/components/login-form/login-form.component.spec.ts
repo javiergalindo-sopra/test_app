@@ -1,24 +1,41 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonInput } from '@ionic/angular';
+import { render } from '@testing-library/angular';
 
 import { LoginFormComponent } from './login-form.component';
 
 describe('LoginFormComponent', () => {
-  let component: LoginFormComponent;
-  let fixture: ComponentFixture<LoginFormComponent>;
+  beforeEach(() => {});
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LoginFormComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  it('should create the login form component', async () => {
+    const { fixture } = await render(LoginFormComponent, {
+      declarations: [IonInput],
+      imports: [IonicModule],
+      detectChanges: true,
+    });
+    expect(fixture.componentInstance).toBeTruthy();
+  });
 
-    fixture = TestBed.createComponent(LoginFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  it('should render the email field', async () => {
+    const { findByPlaceholderText } = await render(LoginFormComponent, {
+      declarations: [IonInput],
+      imports: [IonicModule],
+      detectChanges: true,
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    const emailLabel = await findByPlaceholderText('Email');
+
+    expect(emailLabel).toBeInTheDocument();
+  });
+
+  it('should render the password field', async () => {
+    const { findByPlaceholderText } = await render(LoginFormComponent, {
+      declarations: [IonInput],
+      imports: [IonicModule],
+      detectChanges: true,
+    });
+
+    const emailLabel = await findByPlaceholderText('Contraseña');
+
+    expect(emailLabel).toBeInTheDocument();
   });
 });

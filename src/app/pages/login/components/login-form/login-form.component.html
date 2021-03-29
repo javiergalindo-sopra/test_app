@@ -1,3 +1,16 @@
 <ion-grid class="login-form" data-testid="login-form">
-  login-form works!
+  <form>
+    <ion-item>
+      <ion-label><ion-icon name="mail-outline"></ion-icon></ion-label>
+      <ion-input type="text" placeholder="Email" [name]="'email'"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><ion-icon name="lock-closed-outline"></ion-icon></ion-label>
+      <ion-input
+        type="text"
+        placeholder="Contraseña"
+        [name]="'password'"
+      ></ion-input>
+    </ion-item>
+  </form>
 </ion-grid>
