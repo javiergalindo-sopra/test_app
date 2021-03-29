@@ -1,9 +1,14 @@
 @import 'src/theme/partials/mixins';
+@import 'src/theme/partials/variables';
 
 .welcome-logo {
+  @media screen and (min-width: map-get($ion-grid-breakpoints, sm)) {
+    background-color: white;
+  }
+
   &__app-logo {
     @include aligns(center, center);
-    margin-bottom: 2rem;
+    margin: 2rem auto;
   }
 
   &__thumbnail {
@@ -12,5 +17,47 @@
 
   &__logo-img {
     background: url('../../../../../assets/logo.jpg') no-repeat left/cover;
+  }
+}
+
+.login-form {
+  --ion-grid-column-padding: 0;
+  background-color: white;
+
+  &__form {
+    padding: 0.5rem 1.5rem 0;
+  }
+
+  &__form-field  {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+  }
+
+  &__toggle-button {
+    padding-right: 1px;
+    --handle-background: rgb(160, 160, 160);
+    --background: rgb(230, 230, 230);
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  &__field-label {
+    --color: var(--sanitas-lightgrey);
+  }
+
+  &__input {
+    font-size: 0.9rem;
+    --placeholder-color: var(--sanitas-lightgrey);
+  }
+
+  &__submit-button {
+    margin: 0;
+    --background: var(--sanitas-primary);
+    --background-activated: var(--sanitas-lighter-primary);
+    font-weight: 600;
   }
 }

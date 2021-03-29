@@ -5,9 +5,24 @@
   --background: url('../../../assets/background.jpg') no-repeat left/cover;
 
   &__content {
+    --ion-grid-columns: 1;
+
+    .row {
+      width: 100%;
+      app-login-form {
+        width: 100%;
+        padding: 0 1rem;
+      }
+    }
+
     @include aligns(center, center);
+
     @media screen and (min-width: map-get($ion-grid-breakpoints, sm)) {
       height: 100vh;
+
+      .row {
+        max-width: 30rem;
+      }
     }
   }
 }
